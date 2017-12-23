@@ -26,7 +26,7 @@ class NetworkUtils {
                 print("printing cabs: ")
                 if let cabs = response.result.value {
                     cabs.forEach { print("- \($0.name)") }
-//                    CabManager.shared.updateCabs(cabs: cabs)
+                    CabManager.shared.updateCabs(cabs: cabs)
                 }
             }
     }

@@ -24,7 +24,7 @@ class CabManager{
     }
     
     func updateCabs(cabs: [CabModel]){
-        if(cabs.count == 0){
+        if(self.cabs.count == 0){
             //TODO: if list is empty, then insert
             cabs.forEach{ cab in
                 self.cabs[cab.name] = cab
@@ -33,7 +33,7 @@ class CabManager{
             //TODO: if list is populated, then update
             cabs.forEach{ cab in
                 var cabToUpdate = self.cabs[cab.name]
-//                cabToUpdate.updateCab(cab: cab)
+                cabToUpdate?.updateCab(cab: cab)
             }
         }
     }

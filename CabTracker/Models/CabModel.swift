@@ -11,15 +11,15 @@ import GoogleMaps
 
 struct CabModel: ResponseObjectSerializable, ResponseCollectionSerializable, CustomStringConvertible {
     
-    let id: String
-    let heading: Int
-    let ignition: Bool
-    let latitude: String
-    let longitude: String
-    let moved: String
-    let name: String
-    let updated: String
-    let velocity: Int
+    var id: String
+    var heading: Int
+    var ignition: Bool
+    var latitude: String
+    var longitude: String
+    var moved: String
+    var name: String
+    var updated: String
+    var velocity: Int
     var marker: GMSMarker?
 
     var description: String {
@@ -49,6 +49,18 @@ struct CabModel: ResponseObjectSerializable, ResponseCollectionSerializable, Cus
         self.updated = updated
         self.velocity = velocity
         self.marker = nil
+    }
+    
+    mutating func updateCab(cab: CabModel){
+        self.id = cab.id
+        self.heading = cab.heading
+        self.ignition = cab.ignition
+        self.latitude = cab.latitude
+        self.longitude = cab.longitude
+        self.moved = cab.moved
+        self.name = cab.name
+        self.updated = cab.updated
+        self.velocity = cab.velocity
     }
 
 }

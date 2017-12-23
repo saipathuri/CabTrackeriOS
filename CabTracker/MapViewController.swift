@@ -13,6 +13,7 @@ class MapViewController: UIViewController {
     let UTD_CENTER_LAT = 32.9859896
     let UTD_CENTER_LONG = -96.7517943
     var mapView: GMSMapView?
+    let CAB_ICON = UIImage(named:"golf-cart")
     
     var timer = Timer()
     
@@ -50,16 +51,20 @@ class MapViewController: UIViewController {
         let cabs = CabManager.shared.getCabs()
         for key in cabs.keys{
             var currentCab = cabs[key]!
+            let lat = Double(currentCab.latitude)!
+            let long = Double(currentCab.longitude)!
+            let newCoordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
             if(currentCab.marker == nil){
                 let marker = GMSMarker()
-                marker.position = CLLocationCoordinate2D(latitude: Double(currentCab.latitude)!, longitude: Double(currentCab.longitude)!)
+                marker.position = newCoordinate
                 marker.title = currentCab.name
                 marker.snippet = currentCab.moved
-                marker.map = mapView
+                marker.map = view as! GMSMapView
+                marker.icon = CAB_ICON
                 currentCab.marker = marker
             }else{
                 var marker = currentCab.marker
-                marker?.position = CLLocationCoordinate2D(latitude: Double(currentCab.latitude)!, longitude: Double(currentCab.longitude)!)
+                marker?.position = newCoordinate
             }
         }
     }
