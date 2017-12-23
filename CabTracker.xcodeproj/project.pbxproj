@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2F22A58BC1750E0E25DAF354 /* Pods_CabTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D11CA3D100E78C8934C3F7D /* Pods_CabTracker.framework */; };
+		E25BACB01FEE657C0020F058 /* Cab.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25BACAF1FEE657C0020F058 /* Cab.swift */; };
+		E25BACB61FEE6CB00020F058 /* AlamofireRequest+JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25BACB51FEE6CB00020F058 /* AlamofireRequest+JSONSerializable.swift */; };
+		E25BACB71FEE6D450020F058 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E25BACB81FEE6D450020F058 /* SwiftyJSON.framework */; };
 		E2A7B29D1FEE185800CD690A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7B29C1FEE185800CD690A /* AppDelegate.swift */; };
 		E2A7B29F1FEE185800CD690A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7B29E1FEE185800CD690A /* MapViewController.swift */; };
 		E2A7B2A11FEE185800CD690A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7B2A01FEE185800CD690A /* SecondViewController.swift */; };
@@ -20,6 +23,9 @@
 /* Begin PBXFileReference section */
 		2D11CA3D100E78C8934C3F7D /* Pods_CabTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CabTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1E59F144B5B921C3FC3DAC8 /* Pods-CabTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CabTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-CabTracker/Pods-CabTracker.release.xcconfig"; sourceTree = "<group>"; };
+		E25BACAF1FEE657C0020F058 /* Cab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cab.swift; sourceTree = "<group>"; };
+		E25BACB51FEE6CB00020F058 /* AlamofireRequest+JSONSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlamofireRequest+JSONSerializable.swift"; sourceTree = "<group>"; };
+		E25BACB81FEE6D450020F058 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A7B2991FEE185800CD690A /* CabTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CabTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A7B29C1FEE185800CD690A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2A7B29E1FEE185800CD690A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E25BACB71FEE6D450020F058 /* SwiftyJSON.framework in Frameworks */,
 				2F22A58BC1750E0E25DAF354 /* Pods_CabTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,6 +54,7 @@
 		215F583A47F2A6EC8323D555 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E25BACB81FEE6D450020F058 /* SwiftyJSON.framework */,
 				2D11CA3D100E78C8934C3F7D /* Pods_CabTracker.framework */,
 			);
 			name = Frameworks;
@@ -59,6 +67,23 @@
 				B1E59F144B5B921C3FC3DAC8 /* Pods-CabTracker.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E25BACAB1FEE63260020F058 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E2A7B2B01FEE588600CD690A /* NetworkUtils.swift */,
+				E25BACB51FEE6CB00020F058 /* AlamofireRequest+JSONSerializable.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E25BACAE1FEE653B0020F058 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E25BACAF1FEE657C0020F058 /* Cab.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E2A7B2901FEE185800CD690A = {
@@ -82,6 +107,8 @@
 		E2A7B29B1FEE185800CD690A /* CabTracker */ = {
 			isa = PBXGroup;
 			children = (
+				E25BACAE1FEE653B0020F058 /* Models */,
+				E25BACAB1FEE63260020F058 /* Utils */,
 				E2A7B29C1FEE185800CD690A /* AppDelegate.swift */,
 				E2A7B29E1FEE185800CD690A /* MapViewController.swift */,
 				E2A7B2A01FEE185800CD690A /* SecondViewController.swift */,
@@ -89,7 +116,6 @@
 				E2A7B2A51FEE185800CD690A /* Assets.xcassets */,
 				E2A7B2A71FEE185800CD690A /* LaunchScreen.storyboard */,
 				E2A7B2AA1FEE185800CD690A /* Info.plist */,
-				E2A7B2B01FEE588600CD690A /* NetworkUtils.swift */,
 			);
 			path = CabTracker;
 			sourceTree = "<group>";
@@ -209,10 +235,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CabTracker/Pods-CabTracker-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -227,9 +255,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2A7B2B11FEE588600CD690A /* NetworkUtils.swift in Sources */,
+				E25BACB01FEE657C0020F058 /* Cab.swift in Sources */,
 				E2A7B2A11FEE185800CD690A /* SecondViewController.swift in Sources */,
 				E2A7B29D1FEE185800CD690A /* AppDelegate.swift in Sources */,
 				E2A7B29F1FEE185800CD690A /* MapViewController.swift in Sources */,
+				E25BACB61FEE6CB00020F058 /* AlamofireRequest+JSONSerializable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
