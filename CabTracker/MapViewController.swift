@@ -59,12 +59,11 @@ class MapViewController: UIViewController {
                 marker.position = newCoordinate
                 marker.title = currentCab.name
                 marker.snippet = currentCab.moved
-                marker.map = view as! GMSMapView
+                marker.map = (view as! GMSMapView)
                 marker.icon = CAB_ICON
                 currentCab.marker = marker
             }else{
-                var marker = currentCab.marker
-                marker?.position = newCoordinate
+                currentCab.marker!.position = newCoordinate
             }
         }
     }
