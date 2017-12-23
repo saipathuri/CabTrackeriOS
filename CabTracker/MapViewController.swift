@@ -54,16 +54,23 @@ class MapViewController: UIViewController {
             let lat = Double(currentCab.latitude)!
             let long = Double(currentCab.longitude)!
             let newCoordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            
+            let heading = Double(currentCab.heading)
+            let rotation = heading - 90
+            
             if(currentCab.marker == nil){
                 let marker = GMSMarker()
                 marker.position = newCoordinate
                 marker.title = currentCab.name
                 marker.snippet = currentCab.moved
                 marker.map = (view as! GMSMapView)
+                marker.groundAnchor = CGPoint(x: 0.5, y: 0.5)
+                marker.rotation = rotation
                 marker.icon = CAB_ICON
                 currentCab.marker = marker
             }else{
                 currentCab.marker!.position = newCoordinate
+                currentCab.marker!.rotation = rotation
             }
         }
     }
