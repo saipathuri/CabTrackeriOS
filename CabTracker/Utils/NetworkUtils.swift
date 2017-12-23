@@ -15,12 +15,18 @@ class NetworkUtils {
         Alamofire.request(ENDPOINT_URL)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
-            .responseCollection { (response: DataResponse<[Cab]>) in
+//            .responseJSON{ response in
+//                if let json = response.result.value {
+//                    print("JSON: \(json)") // serialized json response
+//                }
+//            }
+            .responseCollection { (response: DataResponse<[CabModel]>) in
                 debugPrint(response)
                 
                 print("printing cabs: ")
                 if let cabs = response.result.value {
                     cabs.forEach { print("- \($0.name)") }
+//                    CabManager.shared.updateCabs(cabs: cabs)
                 }
             }
     }

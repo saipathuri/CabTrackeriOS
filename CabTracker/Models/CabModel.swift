@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import GoogleMaps
 
-struct Cab: ResponseObjectSerializable, ResponseCollectionSerializable, CustomStringConvertible {
+struct CabModel: ResponseObjectSerializable, ResponseCollectionSerializable, CustomStringConvertible {
     
     let id: String
     let heading: Int
@@ -19,7 +20,8 @@ struct Cab: ResponseObjectSerializable, ResponseCollectionSerializable, CustomSt
     let name: String
     let updated: String
     let velocity: Int
-    
+    var marker: GMSMarker?
+
     var description: String {
         return "Cab: { name: \(name), updated: \(updated) }"
     }
@@ -46,6 +48,7 @@ struct Cab: ResponseObjectSerializable, ResponseCollectionSerializable, CustomSt
         self.name = name
         self.updated = updated
         self.velocity = velocity
+        self.marker = nil
     }
-    
+
 }

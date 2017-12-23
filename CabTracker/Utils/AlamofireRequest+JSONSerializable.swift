@@ -89,10 +89,11 @@ extension ResponseCollectionSerializable where Self: ResponseObjectSerializable 
     static func collection(from response: HTTPURLResponse, withRepresentation representation: Any) -> [Self] {
         var collection: [Self] = []
         if let representation = representation as? [String: Any] {
-            let representation = representation["cabs"] as? [[String: Any]]
-            for itemRepresentation in representation! {
-                if let item = Self(response: response, representation: itemRepresentation) {
-                    collection.append(item)
+            if let representation = representation["cabs"] as? [[String: Any]]{
+                for itemRepresentation in representation {
+                    if let item = Self(response: response, representation: itemRepresentation) {
+                        collection.append(item)
+                    }
                 }
             }
         }

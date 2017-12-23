@@ -12,10 +12,19 @@ import GoogleMaps
 class MapViewController: UIViewController {
     let UTD_CENTER_LAT = 32.9859896
     let UTD_CENTER_LONG = -96.7517943
+    var mapView: GMSMapView?
+    
+    var timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view, typically from a
+        runTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer.invalidate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,13 +44,33 @@ class MapViewController: UIViewController {
             print("User's location is unknown")
         }
         view = mapView
-        
-        // Creates a marker in the center of the map.
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-//        marker.title = "Univeristy of "
-//        marker.snippet = "Australia"
-//        marker.map = mapView
+    }
+    
+    func updateMarkers(){
+        let cabs = CabManager.shared.getCabs()
+        for key in cabs.keys{
+            var currentCab = cabs[key]!
+            if(currentCab.marker == nil){
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2D(latitude: Double(currentCab.latitude)!, longitude: Double(currentCab.longitude)!)
+                marker.title = currentCab.name
+                marker.snippet = currentCab.moved
+                marker.map = mapView
+                currentCab.marker = marker
+            }else{
+                var marker = currentCab.marker
+                marker?.position = CLLocationCoordinate2D(latitude: Double(currentCab.latitude)!, longitude: Double(currentCab.longitude)!)
+            }
+        }
+    }
+    
+    @objc func updateData(){
+        NetworkUtils.makeRequest()
+        updateMarkers()
+    }
+
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
     }
 
 }
