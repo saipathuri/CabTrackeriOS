@@ -23,14 +23,16 @@ class CabManager{
         self.cabs = [String: CabModel]()
     }
     
+    func updateCabs(cabs: [String: CabModel]){
+        self.cabs = cabs
+    }
+    
     func updateCabs(cabs: [CabModel]){
         if(self.cabs.count == 0){
-            //TODO: if list is empty, then insert
             cabs.forEach{ cab in
                 self.cabs[cab.name] = cab
             }
         } else{
-            //TODO: if list is populated, then update
             cabs.forEach{ cab in
                 var cabToUpdate = self.cabs[cab.name]
                 cabToUpdate?.updateCab(cab: cab)

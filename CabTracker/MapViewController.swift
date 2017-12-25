@@ -48,7 +48,7 @@ class MapViewController: UIViewController {
     }
     
     func updateMarkers(){
-        let cabs = CabManager.shared.getCabs()
+        var cabs = CabManager.shared.getCabs()
         for key in cabs.keys{
             var currentCab = cabs[key]!
             let lat = Double(currentCab.latitude)!
@@ -59,6 +59,7 @@ class MapViewController: UIViewController {
             let rotation = heading - 90
             
             if(currentCab.marker == nil){
+                print("creating new marker")
                 let marker = GMSMarker()
                 marker.position = newCoordinate
                 marker.title = currentCab.name
@@ -69,10 +70,13 @@ class MapViewController: UIViewController {
                 marker.icon = CAB_ICON
                 currentCab.marker = marker
             }else{
+                print("updating existing marker position")
                 currentCab.marker!.position = newCoordinate
                 currentCab.marker!.rotation = rotation
             }
+            cabs[key] = currentCab
         }
+        CabManager.shared.updateCabs(cabs: cabs)
     }
     
     @objc func updateData(){
