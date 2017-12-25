@@ -5,4 +5,5 @@ use_frameworks!
 target 'CabTracker' do
   pod 'GoogleMaps'
   pod 'Alamofire', '~> 4.5'
+  pod 'SwiftyJSON'
 end

@@ -12,10 +12,20 @@ import GoogleMaps
 class MapViewController: UIViewController {
     let UTD_CENTER_LAT = 32.9859896
     let UTD_CENTER_LONG = -96.7517943
+    var mapView: GMSMapView?
+    let CAB_ICON = UIImage(named:"golf-cart")
+    
+    var timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view, typically from a
+        runTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer.invalidate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,13 +45,47 @@ class MapViewController: UIViewController {
             print("User's location is unknown")
         }
         view = mapView
-        
-        // Creates a marker in the center of the map.
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-//        marker.title = "Univeristy of "
-//        marker.snippet = "Australia"
-//        marker.map = mapView
+    }
+    
+    func updateMarkers(){
+        var cabs = CabManager.shared.getCabs()
+        for key in cabs.keys{
+            var currentCab = cabs[key]!
+            let lat = Double(currentCab.latitude)!
+            let long = Double(currentCab.longitude)!
+            let newCoordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            
+            let heading = Double(currentCab.heading)
+            let rotation = heading - 90
+            
+            if(currentCab.marker == nil){
+                print("creating new marker")
+                let marker = GMSMarker()
+                marker.position = newCoordinate
+                marker.title = currentCab.name
+                marker.snippet = currentCab.moved
+                marker.map = (view as! GMSMapView)
+                marker.groundAnchor = CGPoint(x: 0.5, y: 0.5)
+                marker.rotation = rotation
+                marker.icon = CAB_ICON
+                currentCab.marker = marker
+            }else{
+                print("updating existing marker position")
+                currentCab.marker!.position = newCoordinate
+                currentCab.marker!.rotation = rotation
+            }
+            cabs[key] = currentCab
+        }
+        CabManager.shared.updateCabs(cabs: cabs)
+    }
+    
+    @objc func updateData(){
+        NetworkUtils.makeRequest()
+        updateMarkers()
+    }
+
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateData), userInfo: nil, repeats: true)
     }
 
 }
