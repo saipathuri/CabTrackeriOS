@@ -15,7 +15,9 @@ class CabManager{
     
     // MARK: -
     
-    var cabs: [String: CabModel]
+    //key is name of cab
+    //value is CabModel object
+    private var cabs: [String: CabModel]
     
     // Initialization
     
@@ -23,21 +25,34 @@ class CabManager{
         self.cabs = [String: CabModel]()
     }
     
+    // replaces the dictionary with a new one
     func updateCabs(cabs: [String: CabModel]){
         self.cabs = cabs
     }
     
     func updateCabs(cabs: [CabModel]){
+        // if there are no cabs stored
+        // add all cabs to the dictionary
+        // and load if they should appear from UserDefaults
         if(self.cabs.count == 0){
             cabs.forEach{ cab in
                 self.cabs[cab.name] = cab
+                self.cabs[cab.name]?.trackingEnabled = UserDefaults.standard.bool(forKey: cab.name)
             }
+        // if there are cabs stored
+        // then call the information update function on each cab
+        // we do this to not overwrite the marker
         } else{
             cabs.forEach{ cab in
                 var cabToUpdate = self.cabs[cab.name]
                 cabToUpdate?.updateCab(cab: cab)
             }
         }
+    }
+    
+    // used to update if the function should be called or not
+    func updateCabTrackingEnabled(cabName: String, isTracked: Bool){
+        self.cabs[cabName]?.trackingEnabled = isTracked
     }
     
     func getCabs() -> [String: CabModel] {

@@ -8,16 +8,25 @@
 
 import UIKit
 import GoogleMaps
+import SharkORM
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, SRKDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Intitialize Google MAPS SDK
+        // API key only works with this package (to whoever is trying to steal this from GitHub)
         GMSServices.provideAPIKey("AIzaSyDWwG2XSFwEvtO7Sm8BNd0mDG1pJDzYYm8")
+        
+        // Initialize SharkORM, currently not in use
+        SharkORM.setDelegate(self)
+        SharkORM.openDatabaseNamed("cabsDatabase")
+        
         return true
     }
 

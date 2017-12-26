@@ -5,18 +5,21 @@ PODS:
   - GoogleMaps/Base (2.5.0)
   - GoogleMaps/Maps (2.5.0):
     - GoogleMaps/Base
+  - SharkORM (2.1.3)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
   - GoogleMaps
+  - SharkORM
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
+  SharkORM: 0dd55f13d82ab4c68f7c54012211c6a34a9f0001
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 3074079d770c9c93070d4339d9bbb4c602825be7
+PODFILE CHECKSUM: 3cbc0f0d469683f4559be4a3fa93a8683bfbb375
 
 COCOAPODS: 1.3.1

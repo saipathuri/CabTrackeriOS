@@ -11,6 +11,9 @@ import Alamofire
 class NetworkUtils {
     static let ENDPOINT_URL = "https://t8ubh7xmac.execute-api.us-east-2.amazonaws.com/Test"
 
+    // makes the request to API endpoint
+    // serializes the JSON array into array of CabModel objects
+    // sends the information to CabManager
     static func makeRequest(){
         Alamofire.request(ENDPOINT_URL)
             .validate(statusCode: 200..<300)
