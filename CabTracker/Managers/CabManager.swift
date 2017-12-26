@@ -37,7 +37,10 @@ class CabManager{
         if(self.cabs.count == 0){
             cabs.forEach{ cab in
                 self.cabs[cab.name] = cab
-                self.cabs[cab.name]?.trackingEnabled = UserDefaults.standard.bool(forKey: cab.name)
+                // if the value exists, then the expression does not return nil
+                // if it returns nil, that means the value isn't stored so use True by default
+                // if it exists, then use it
+                self.cabs[cab.name]?.trackingEnabled = getTrackingStatusFromDefaults(cab: cab)
             }
         // if there are cabs stored
         // then call the information update function on each cab
@@ -57,5 +60,9 @@ class CabManager{
     
     func getCabs() -> [String: CabModel] {
         return cabs
+    }
+    
+    func getTrackingStatusFromDefaults(cab: CabModel) -> Bool {
+        return UserDefaults.standard.object(forKey: cab.name) == nil ? true : UserDefaults.standard.bool(forKey: cab.name)
     }
 }

@@ -58,7 +58,7 @@ class OptionsViewController: UITableViewController {
         if(cabsArray.count > row){
             currentCab = cabsArray[row]
             text = currentCab!.name
-            cell.cabSelected.isOn = UserDefaults.standard.bool(forKey: currentCab!.name)
+            cell.cabSelected.isOn = CabManager.shared.getTrackingStatusFromDefaults(cab: currentCab!)
         }
         cell.cabName.text = text
         
