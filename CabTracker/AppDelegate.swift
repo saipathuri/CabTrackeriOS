@@ -18,8 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SRKDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        // Only works with this package
+        
+        // Intitialize Google MAPS SDK
+        // API key only works with this package (to whoever is trying to steal this from GitHub)
         GMSServices.provideAPIKey("AIzaSyDWwG2XSFwEvtO7Sm8BNd0mDG1pJDzYYm8")
+        
+        // Initialize SharkORM, currently not in use
         SharkORM.setDelegate(self)
         SharkORM.openDatabaseNamed("cabsDatabase")
         
