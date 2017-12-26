@@ -21,7 +21,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Tracking" image="first" selectedImage="first" id="acW-dT-cKf" userLabel="Map"/>
+                    <tabBarItem key="tabBarItem" title="Tracking" image="Car" selectedImage="Car" id="acW-dT-cKf" userLabel="Map"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -31,7 +31,7 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -54,7 +54,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CabCell" id="nPe-bl-76c" customClass="OptionsCell" customModule="CabTracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OptionsCell" id="nPe-bl-76c" customClass="OptionsCell" customModule="CabTracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" semanticContentAttribute="forceLeftToRight" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nPe-bl-76c" id="E0h-Wh-20I">
@@ -95,7 +95,11 @@
                             <outlet property="delegate" destination="8l1-Sr-e4D" id="S3I-7P-mF1"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Options" id="x0Y-b4-4GD"/>
+                    <tabBarItem key="tabBarItem" title="Options" image="Settings" selectedImage="Settings" id="x0Y-b4-4GD"/>
+                    <connections>
+                        <outlet property="cabsTableView" destination="2JQ-Oe-ish" id="TaZ-lQ-Hz9"/>
+                        <outlet property="tableView" destination="2JQ-Oe-ish" id="NJ2-vm-Q9O"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HaK-79-hQq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,6 +107,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="Car" width="30" height="30"/>
+        <image name="Settings" width="30" height="30"/>
     </resources>
 </document>

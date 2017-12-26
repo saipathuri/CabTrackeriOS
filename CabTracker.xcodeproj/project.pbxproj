@@ -12,7 +12,6 @@
 		E25BACB61FEE6CB00020F058 /* AlamofireRequest+JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25BACB51FEE6CB00020F058 /* AlamofireRequest+JSONSerializable.swift */; };
 		E25BACB71FEE6D450020F058 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E25BACB81FEE6D450020F058 /* SwiftyJSON.framework */; };
 		E25BACBD1FEE702F0020F058 /* CabManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25BACBC1FEE702F0020F058 /* CabManager.swift */; };
-		E25BACC31FEEB7A80020F058 /* golf-cart.png in Resources */ = {isa = PBXBuildFile; fileRef = E25BACC21FEEB7A80020F058 /* golf-cart.png */; };
 		E2A7B29D1FEE185800CD690A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7B29C1FEE185800CD690A /* AppDelegate.swift */; };
 		E2A7B29F1FEE185800CD690A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7B29E1FEE185800CD690A /* MapViewController.swift */; };
 		E2A7B2A11FEE185800CD690A /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7B2A01FEE185800CD690A /* OptionsViewController.swift */; };
@@ -29,7 +28,6 @@
 		E25BACB51FEE6CB00020F058 /* AlamofireRequest+JSONSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlamofireRequest+JSONSerializable.swift"; sourceTree = "<group>"; };
 		E25BACB81FEE6D450020F058 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25BACBC1FEE702F0020F058 /* CabManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabManager.swift; sourceTree = "<group>"; };
-		E25BACC21FEEB7A80020F058 /* golf-cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "golf-cart.png"; sourceTree = "<group>"; };
 		E2A7B2991FEE185800CD690A /* CabTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CabTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A7B29C1FEE185800CD690A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2A7B29E1FEE185800CD690A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 				E2A7B2A01FEE185800CD690A /* OptionsViewController.swift */,
 				E2A7B2A21FEE185800CD690A /* Main.storyboard */,
 				E2A7B2A51FEE185800CD690A /* Assets.xcassets */,
-				E25BACC21FEEB7A80020F058 /* golf-cart.png */,
 				E2A7B2A71FEE185800CD690A /* LaunchScreen.storyboard */,
 				E2A7B2AA1FEE185800CD690A /* Info.plist */,
 			);
@@ -207,7 +204,6 @@
 				E2A7B2A91FEE185800CD690A /* LaunchScreen.storyboard in Resources */,
 				E2A7B2A61FEE185800CD690A /* Assets.xcassets in Resources */,
 				E2A7B2A41FEE185800CD690A /* Main.storyboard in Resources */,
-				E25BACC31FEEB7A80020F058 /* golf-cart.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +420,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DVB48JW4PX;
 				INFOPLIST_FILE = CabTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.saipathuri.CabTracker;
@@ -439,6 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DVB48JW4PX;
 				INFOPLIST_FILE = CabTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.saipathuri.CabTracker;
