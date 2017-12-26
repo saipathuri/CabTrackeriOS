@@ -15,7 +15,7 @@
 		E25BACC31FEEB7A80020F058 /* golf-cart.png in Resources */ = {isa = PBXBuildFile; fileRef = E25BACC21FEEB7A80020F058 /* golf-cart.png */; };
 		E2A7B29D1FEE185800CD690A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7B29C1FEE185800CD690A /* AppDelegate.swift */; };
 		E2A7B29F1FEE185800CD690A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7B29E1FEE185800CD690A /* MapViewController.swift */; };
-		E2A7B2A11FEE185800CD690A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7B2A01FEE185800CD690A /* SecondViewController.swift */; };
+		E2A7B2A11FEE185800CD690A /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A7B2A01FEE185800CD690A /* OptionsViewController.swift */; };
 		E2A7B2A41FEE185800CD690A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A7B2A21FEE185800CD690A /* Main.storyboard */; };
 		E2A7B2A61FEE185800CD690A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2A7B2A51FEE185800CD690A /* Assets.xcassets */; };
 		E2A7B2A91FEE185800CD690A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A7B2A71FEE185800CD690A /* LaunchScreen.storyboard */; };
@@ -33,7 +33,7 @@
 		E2A7B2991FEE185800CD690A /* CabTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CabTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A7B29C1FEE185800CD690A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2A7B29E1FEE185800CD690A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		E2A7B2A01FEE185800CD690A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		E2A7B2A01FEE185800CD690A /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		E2A7B2A31FEE185800CD690A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2A7B2A51FEE185800CD690A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2A7B2A81FEE185800CD690A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,6 +98,13 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		E25BACC41FF0C0E80020F058 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E2A7B2901FEE185800CD690A = {
 			isa = PBXGroup;
 			children = (
@@ -119,12 +126,13 @@
 		E2A7B29B1FEE185800CD690A /* CabTracker */ = {
 			isa = PBXGroup;
 			children = (
+				E25BACC41FF0C0E80020F058 /* Views */,
 				E25BACBB1FEE701C0020F058 /* Managers */,
 				E25BACAE1FEE653B0020F058 /* Models */,
 				E25BACAB1FEE63260020F058 /* Utils */,
 				E2A7B29C1FEE185800CD690A /* AppDelegate.swift */,
 				E2A7B29E1FEE185800CD690A /* MapViewController.swift */,
-				E2A7B2A01FEE185800CD690A /* SecondViewController.swift */,
+				E2A7B2A01FEE185800CD690A /* OptionsViewController.swift */,
 				E2A7B2A21FEE185800CD690A /* Main.storyboard */,
 				E2A7B2A51FEE185800CD690A /* Assets.xcassets */,
 				E25BACC21FEEB7A80020F058 /* golf-cart.png */,
@@ -250,11 +258,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CabTracker/Pods-CabTracker-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SharkORM/SharkORM.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SharkORM.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,7 +281,7 @@
 			files = (
 				E2A7B2B11FEE588600CD690A /* NetworkUtils.swift in Sources */,
 				E25BACB01FEE657C0020F058 /* CabModel.swift in Sources */,
-				E2A7B2A11FEE185800CD690A /* SecondViewController.swift in Sources */,
+				E2A7B2A11FEE185800CD690A /* OptionsViewController.swift in Sources */,
 				E2A7B29D1FEE185800CD690A /* AppDelegate.swift in Sources */,
 				E25BACBD1FEE702F0020F058 /* CabManager.swift in Sources */,
 				E2A7B29F1FEE185800CD690A /* MapViewController.swift in Sources */,

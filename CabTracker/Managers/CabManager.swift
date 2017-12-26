@@ -15,6 +15,8 @@ class CabManager{
     
     // MARK: -
     
+    //key is name of cab
+    //value is CabModel object
     var cabs: [String: CabModel]
     
     // Initialization
@@ -38,6 +40,10 @@ class CabManager{
                 cabToUpdate?.updateCab(cab: cab)
             }
         }
+    }
+    
+    func updateCabTrackingEnabled(cabName: String, isTracked: Bool){
+        self.cabs[cabName]?.trackingEnabled = isTracked
     }
     
     func getCabs() -> [String: CabModel] {

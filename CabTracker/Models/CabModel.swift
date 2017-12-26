@@ -8,7 +8,9 @@
 
 import Foundation
 import GoogleMaps
+import SharkORM
 
+// This class is used to serialize the response from API into an object
 struct CabModel: ResponseObjectSerializable, ResponseCollectionSerializable, CustomStringConvertible {
     
     var id: String
@@ -21,6 +23,7 @@ struct CabModel: ResponseObjectSerializable, ResponseCollectionSerializable, Cus
     var updated: String
     var velocity: Int
     var marker: GMSMarker?
+    var trackingEnabled: Bool
 
     var description: String {
         return "Cab: { name: \(name), updated: \(updated) }"
@@ -49,6 +52,7 @@ struct CabModel: ResponseObjectSerializable, ResponseCollectionSerializable, Cus
         self.updated = updated
         self.velocity = velocity
         self.marker = nil
+        self.trackingEnabled = true
     }
     
     mutating func updateCab(cab: CabModel){
